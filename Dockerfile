@@ -9,6 +9,7 @@ COPY Frontend/viatab/package-lock.json /frontend/package-lock.json
 RUN npm install --legacy-peer-deps
 COPY Frontend/viatab/public /frontend/public
 COPY Frontend/viatab/src /frontend/src
+COPY Frontend/viatab/tsconfig.json /frontend/tsconfig.json
 RUN npm run build
 RUN ls -l /frontend
 
