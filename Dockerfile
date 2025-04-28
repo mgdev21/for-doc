@@ -8,7 +8,6 @@ COPY Frontend/viatab/package.json ./package.json
 COPY Frontend/viatab/package-lock.json ./package-lock.json
 COPY Frontend/viatab/public ./public
 COPY Frontend/viatab/src ./src
-COPY Frontend/viatab/tsconfig.json ./tsconfig.json
 RUN npm install --legacy-peer-deps
 RUN npm run build
 RUN ls -l /frontend
