@@ -4,7 +4,7 @@ COPY Java/VIA-Tabloid/target/VIA-Tabloid-0.0.1-SNAPSHOT.jar /app/viatabloid-back
 
 FROM node:16 AS frontend-build
 WORKDIR /frontend
-COPY Frontend/viatab/ /frontend/
+COPY ./Frontend/viatab/ ./
 RUN npm install --legacy-peer-deps
 RUN npm run build
 RUN ls -l /frontend
