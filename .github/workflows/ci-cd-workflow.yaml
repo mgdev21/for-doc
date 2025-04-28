@@ -22,15 +22,15 @@ jobs:
       with:
         driver: docker
 
-    - name: Build Docker Image for FOR-DOC
+    - name: Build Docker Image
       run: |
         docker build -t for-doc:latest .
 
-    - name: Load Docker Image into Minikube
+    - name: Load Image into Minikube
       run: |
         minikube image load for-doc:latest
 
-    - name: Apply Kubernetes manifests
+    - name: Deploy to Kubernetes
       run: |
         kubectl apply -f deployment.yaml
         kubectl apply -f service.yaml
