@@ -1,0 +1,22 @@
+# Frontend dependencies and builds
+node_modules/
+build/
+dist/
+
+# Backend Java/Spring Boot
+target/
+*.jar
+
+# Docker
+*.tar
+
+# IDE settings
+.vscode/
+.idea/
+
+# OS system files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
