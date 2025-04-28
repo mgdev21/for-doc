@@ -1,0 +1,12 @@
+CREATE TABLE story (
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    content TEXT NOT NULL,
+    department VARCHAR(100) NOT NULL
+);
+
+INSERT INTO story (title, content, department)
+VALUES
+('Story 1 Title', 'This is the content of Story 1.', 'Engineering'),
+('Story 2 Title', 'This is the content of Story 2.', 'Sales'),
+('Story 3 Title', 'This is the content of Story 3.', 'HR');

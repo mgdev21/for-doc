@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: for-doc-deployment
+  labels:
+    app: for-doc
+spec:
+  replicas: 3 
+  selector:
+    matchLabels:
+      app: for-doc
+  template:
+    metadata:
+      labels:
+        app: for-doc
+    spec:
+      containers:
+      - name: for-doc-container
+        image: for-doc:latest
+        imagePullPolicy: Never
+        ports:
+         - containerPort: 80

@@ -1,0 +1,42 @@
+version: "3.8"
+services:
+  backend:
+    build:
+      context: ./Java/VIA-Tabloid
+    ports:
+      - "8080:8080"
+    networks:
+      - viatabloid-network
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+    depends_on:
+      - db
+
+  frontend:
+    build:
+      context: ./Frontend
+    ports:
+      - "80:80"
+    networks:
+      - viatabloid-network
+    environment:
+      REACT_APP_API_URL: http://backend:8080/api
+
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: zxcasdqwe123
+      POSTGRES_DB: viatabloid
+    volumes:
+      - viatabloid-db-data:/var/lib/postgresql/data
+    networks:
+      - viatabloid-network
+
+networks:
+  viatabloid-network:
+    driver: bridge
+
+volumes:
+  viatabloid-db-data:
+    driver: local
